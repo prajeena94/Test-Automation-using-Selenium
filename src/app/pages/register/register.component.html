@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+        <div class="page-header">
+            <h1 class="text-center">Sign Up</h1>
+            <div class="panel panel-default success" *ngIf="isSuccess">
+                <div class="panel-body">User Registered Successfully</div>
+            </div>
+        </div>
+        <div>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <span class="help-block" style="color: #a94442;" *ngIf="showError">
+                    is required
+                </span>
+                <input type="text" id="name" [(ngModel)]="registerModel.name"
+                    class="form-control valid untouched pristine">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <span class="help-block" style="color: #a94442;" *ngIf="showError">
+                    is required
+                </span>
+                <span class="help-block email-error" style="color: #a94442;" *ngIf="emailError">
+                    is invalid
+                </span>
+                <input type="text" id="email" [(ngModel)]="registerModel.email"
+                    class="form-control valid untouched pristine">
+            </div>
+            <div class="form-group">
+                <label for="user-name">User Name</label>
+                <span class="help-block" style="color: #a94442;" *ngIf="showError">
+                    is required
+                </span>
+                <input type="text" id="user-name" [(ngModel)]="registerModel.userName"
+                    class="form-control valid untouched pristine">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <span class="help-block" style="color: #a94442;" *ngIf="showError">
+                    is required
+                </span>
+                <input type="password" id="password" [(ngModel)]="registerModel.password"
+                    class="form-control valid untouched pristine" autocomplete="off">
+            </div>
+
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <span class="help-block" style="color: #a94442;" *ngIf="showError">
+                    is required
+                </span>
+                <span class="help-block password-mismatch" style="color: #a94442;" *ngIf="passwordError">
+                    does not match
+                </span>
+                <input type="password" id="confirm-password" [(ngModel)]="registerModel.confirmPassword"
+                    class="form-control valid untouched pristine" autocomplete="off">
+            </div>
+            <input type="submit" value="Sign Up" (click)="register()" class="btn btn-primary">
+        </div>
+    </div>
+</div>
